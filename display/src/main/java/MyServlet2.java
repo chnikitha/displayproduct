@@ -1,0 +1,21 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+public class MyServlet2 extends HttpServlet {
+public void doGet(HttpServletRequest request, HttpServletResponse response){
+try{
+response.setContentType("text/html");
+PrintWriter pwriter = response.getWriter();
+//Reading cookies
+Cookie[] c=request.getCookies();
+//Displaying User name value from cookie
+pwriter.print("Product name : "+c[0].getValue());
+pwriter.print("ID : "+c[1].getValue());
+
+pwriter.close();
+}catch(Exception exp){
+System.out.println(exp);
+}
+}
+}
